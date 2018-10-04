@@ -1,1 +1,3 @@
+python setup.py develop; jupyter nbextension uninstall --py --sys-prefix higlass_jupyter; jupyter nbextension install --py --sys-prefix --symlink higlass_jupyter; jupyter nbextension enable --py --sys-prefix higlass_jupyter
+
 python setup.py sdist upload -r pypi

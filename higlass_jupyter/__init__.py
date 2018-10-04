@@ -3,26 +3,29 @@ import ipywidgets as widgets
 from traitlets import Unicode
 from traitlets import default
 from traitlets import List
+from traitlets import Dict
+from traitlets import Int
 
 
 def _jupyter_nbextension_paths():
     return [{
         'section': 'notebook',
         'src': 'static',
-        'dest': 'jupyter_higlass',
-        'require': 'jupyter_higlass/extension'
+        'dest': 'higlass_jupyter',
+        'require': 'higlass_jupyter/extension'
     }]
 
 
 class HiGlassDisplay(widgets.DOMWidget):
     _view_name = Unicode('HiGlassDisplayView').tag(sync=True)
     _model_name = Unicode('HiGlassDisplayModel').tag(sync=True)
-    _view_module = Unicode('jupyter_higlass').tag(sync=True)
-    _model_module = Unicode('jupyter_higlass').tag(sync=True)
+    _view_module = Unicode('higlass_jupyter').tag(sync=True)
+    _model_module = Unicode('higlass_jupyter').tag(sync=True)
 
     _model_data = List([]).tag(sync=True)
-    viewconf = Unicode('{}').tag(sync=True)
-    hg_options = Unicode('{ "bounded": true }').tag(sync=True)
+    viewconf = Dict({}).tag(sync=True)
+    hg_options = Dict({}).tag(sync=True)
+    height = Int().tag(sync=True)
 
     def __init__(self, **kwargs):
         # self.viewconf = viewconf
