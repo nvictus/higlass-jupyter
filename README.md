@@ -1,4 +1,4 @@
-jupyter-higlass
+higlass-jupyter
 ===============================
 
 HiGlass Widget Extension for your Jupyter Notebook
@@ -19,13 +19,13 @@ Optionally, the following [Unofficial Community Extensions](http://jupyter-contr
 Development
 -----------
 
-1\. Install this repo as a Python package. With pip's `-e` option, the package is installed in developer (a.k.a. editable) mode, such that the `jupyter_higlass` package is linked Python's `site-packages` directory rather than copied there. This way the package can be edited directly in the repo with no need for build or re-installing.
+1\. Install this repo as a Python package. With pip's `-e` option, the package is installed in developer (a.k.a. editable) mode, such that the `higlass_jupyter` package is linked Python's `site-packages` directory rather than copied there. This way the package can be edited directly in the repo with no need for build or re-installing.
 
     $ git clone https://github.com/pkerpedjiev/higlass-jupyter.git
-    $ cd jupyter-higlass
+    $ cd higlass-jupyter
     $ pip install -e .
 
-2\. Compile and install the Javascript notebook extension (requires npm). With the `--symlink` option, the compiled Javascript in `jupyter_higlass/static` is linked to the extension registry rather than copied. This way both the Python package and front-end assets are linked from the repo.
+2\. Compile and install the Javascript notebook extension (requires npm). With the `--symlink` option, the compiled Javascript in `higlass_jupyter/static` is linked to the extension registry rather than copied. This way both the Python package and front-end assets are linked from the repo.
 
 	$ python setup.py jsdeps
     $ jupyter nbextension install --py --sys-prefix --symlink higlass_jupyter
@@ -80,8 +80,8 @@ minimal_config = {
 }
 
 import json
-import jupyter_higlass
-jupyter_higlass.HiGlassDisplay(viewconf=json.dumps(minimal_config))
+import higlass_jupyter
+higlass_jupyter.HiGlassDisplay(viewconf=json.dumps(minimal_config))
 ```
 
 
@@ -90,7 +90,7 @@ Uninstall
 
 To uninstall both the Python package and Javascript extension:
 
-	$ pip uninstall jupyter_higlass
+	$ pip uninstall higlass_jupyter
 	$ jupyter nbextension uninstall --py --sys-prefix higlass_jupyter
 
 
