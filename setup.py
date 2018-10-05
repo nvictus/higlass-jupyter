@@ -139,6 +139,9 @@ setup_args = {
             'higlass_jupyter/static/extension.js',
             'higlass_jupyter/static/index.js',
             'higlass_jupyter/static/index.js.map',
+            'higlass_jupyter/static/higlass-logo.png',
+            'higlass_jupyter/static/config.yaml',
+            'higlass_jupyter/static/readme.md',
         ]),
     ],
     'install_requires': [
