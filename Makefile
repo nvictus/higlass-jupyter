@@ -1,4 +1,4 @@
-.PHONY: build install clean all
+.PHONY: all build dist install uninstall clean publish-test publish
 
 install:
 	python setup.py jsdeps
@@ -16,3 +16,14 @@ build:
 clean:
 	rm -rf higlass_jupyter/static/
 	rm -rf build
+	rm -rf dist
+
+dist: clean
+	python setup.py sdist bdist_wheel
+
+# pip install --index-url https://test.pypi.org/simple/ higlass_jupyter
+publish-test: dist
+	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+
+publish: dist
+	twine upload dist/*
